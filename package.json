@@ -18,13 +18,13 @@
   "author": "Larry Maccherone",
   "license": "none",
   "dependencies": {
+    "coffee-script": "^1.9.3",
     "documentdb": "^1.1.0",
     "documentdb-lumenize": "^0.2.2",
     "lumenize": "^0.9.11",
     "restify": "^3.0.2"
   },
   "devDependencies": {
-    "nodeunit": "^0.9.1",
-    "coffee-script": "^1.9.2"
+    "nodeunit": "^0.9.1"
   }
 }
