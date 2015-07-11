@@ -1,0 +1,30 @@
+{
+  "name": "documentdb-lumenize-performance",
+  "version": "0.1.0",
+  "description": "node.js server to conduct performance testing for documentdb-lumenize in the same data center as the DocumentDB database",
+  "main": "server",
+  "scripts": {
+    "test": "nodeunit",
+    "postinstall": "coffee --compile server.coffee src"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lmaccherone/documentdb-lumenize-performance.git"
+  },
+  "keywords": [
+    "metrics",
+    "dashboard"
+  ],
+  "author": "Larry Maccherone",
+  "license": "none",
+  "dependencies": {
+    "documentdb": "^1.1.0",
+    "documentdb-lumenize": "^0.2.2",
+    "lumenize": "^0.9.11",
+    "restify": "^3.0.2"
+  },
+  "devDependencies": {
+    "nodeunit": "^0.9.1",
+    "coffee-script": "^1.9.2"
+  }
+}
