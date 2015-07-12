@@ -3,6 +3,8 @@ documentDBUtils = require('documentdb-utils')
 {OLAPCube} = require('lumenize')
 DocumentClient = require("documentdb").DocumentClient
 
+console.log(process.env.DOCUMENT_DB_URL, process.env.DOCUMENT_DB_KEY)
+
 filterQuery = 'SELECT * FROM Facts WHERE Facts.Priority = 1'
 #filterQuery = null
 
