@@ -21,6 +21,7 @@
     "coffee-script": "^1.9.3",
     "documentdb": "^1.1.0",
     "documentdb-lumenize": "^0.2.2",
+    "documentdb-utils": "^0.3.1",
     "lumenize": "^0.9.11",
     "restify": "^3.0.2"
   },
