@@ -27,6 +27,8 @@ run = (req, res, next) ->
 
   usingStoredProcedure = () ->
 
+    console.log('got here')
+
     {cube} = require('documentdb-lumenize')
     #cube = fs.readFileSync('./stored-procedures/cube.string', 'utf8')
 
@@ -86,7 +88,7 @@ run = (req, res, next) ->
         console.log('\n')
         console.log(results)
         fs.writeFileSync(cachedResultsFile, JSON.stringify(results), 'utf8')
-        res.send(200, results)
+#        res.send(200, results)
         next()
 
 
