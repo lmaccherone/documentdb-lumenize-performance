@@ -18,6 +18,7 @@ metrics = [
 cubeConfig = {dimensions, metrics}
 cubeConfig.keepTotals = true
 
+cachedResultsFile = './cached-results.json'
 results = {}
 
 run = (req, res, next) ->
@@ -82,6 +83,7 @@ run = (req, res, next) ->
         results.directRUs = totalRequestCharges
         console.log('\n')
         console.log(results)
+        fs.writeFileSync(cachedResultsFile, JSON.stringify(results), 'utf8')
         res.send(200, results)
         next()
 
@@ -92,6 +94,10 @@ run = (req, res, next) ->
       iterator = client.readDocuments(collectionLink, {maxItemCount: 1000})
 
     iterator.executeNext(processNextPage)
+
+  if fs.existsSync(cachedResultsFile)
+    fileContentsString = fs.readFileSync(cachedResultsFile, 'utf8')
+    res.send(200, JSON.parse(fileContentsString))
 
   usingStoredProcedure()
 
