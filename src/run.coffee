@@ -5,8 +5,8 @@ DocumentClient = require("documentdb").DocumentClient
 
 console.log(process.env.DOCUMENT_DB_URL, process.env.DOCUMENT_DB_KEY)
 
-filterQuery = 'SELECT * FROM Facts WHERE Facts.Priority = 1'
-#filterQuery = null
+#filterQuery = 'SELECT * FROM Facts WHERE Facts.Priority = 1'
+filterQuery = null
 
 dimensions = [
   {field: "ProjectHierarchy", type: 'hierarchy'},
@@ -27,8 +27,6 @@ run = (req, res, next) ->
 
   usingStoredProcedure = () ->
 
-    console.log('got here')
-
     {cube} = require('documentdb-lumenize')
     #cube = fs.readFileSync('./stored-procedures/cube.string', 'utf8')
 
@@ -38,7 +36,7 @@ run = (req, res, next) ->
       storedProcedureID: 'cube'
       storedProcedureJS: cube
       memo: {cubeConfig, filterQuery}
-      debug: true
+      debug: false
 
     processResponse = (err, response) ->
       console.log(response.stats)
@@ -88,7 +86,7 @@ run = (req, res, next) ->
         console.log('\n')
         console.log(results)
         fs.writeFileSync(cachedResultsFile, JSON.stringify(results), 'utf8')
-#        res.send(200, results)
+        res.send(200, results)
         next()
 
 
