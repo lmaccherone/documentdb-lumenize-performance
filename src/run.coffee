@@ -36,7 +36,7 @@ run = (req, res, next) ->
       storedProcedureID: 'cube'
       storedProcedureJS: cube
       memo: {cubeConfig, filterQuery}
-      debug: false
+      debug: true
 
     processResponse = (err, response) ->
       console.log(response.stats)
