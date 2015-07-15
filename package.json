@@ -20,9 +20,9 @@
   "dependencies": {
     "coffee-script": "^1.9.3",
     "documentdb": "^1.1.0",
-    "documentdb-lumenize": "^0.2.3",
+    "documentdb-lumenize": "^0.2.4",
     "documentdb-utils": "^0.3.3",
-    "lumenize": "^0.9.11",
+    "lumenize": "^0.9.12",
     "restify": "^3.0.2"
   },
   "devDependencies": {

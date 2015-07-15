@@ -28,7 +28,6 @@ run = (req, res, next) ->
   usingStoredProcedure = () ->
 
     {cube} = require('documentdb-lumenize')
-    #cube = fs.readFileSync('./stored-procedures/cube.string', 'utf8')
 
     config =
       databaseID: 'test-stored-procedure'
@@ -41,7 +40,7 @@ run = (req, res, next) ->
     processResponse = (err, response) ->
       console.log(response.stats)
       cube = OLAPCube.newFromSavedState(response.memo.savedCube)
-      console.log(cube.toString(null, null, 'Scope'))
+      console.log(cube.toString(null, null, '_count'))
       if err?
         throw new Error(JSON.stringify(err))
 
@@ -78,7 +77,7 @@ run = (req, res, next) ->
       if iterator.hasMoreResults()
         iterator.executeNext(processNextPage)
       else
-        console.log(cube.toString(null, null, 'Scope'))
+        console.log(cube.toString(null, null, '_count'))
         console.timeEnd('readingDirectly')
         console.log('Total RUs: ', totalRequestCharges)
         results.directTime = new Date() - startTime
